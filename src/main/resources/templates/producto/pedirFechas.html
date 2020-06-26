@@ -1,0 +1,23 @@
+<h3>Para ver los productos vendidos entre fechas de un local</h3>
+<h4>Ingrese las fechas y el local</h4>
+		<form action="devolverLocalYFechas" method="Post">
+          <label>Ingrese la primera fecha</label>
+          <input type="date" th:name="fecha1"   />
+          <br/>
+          <br/>
+          <label>Ingrese la segunda fecha</label>
+          <input type="date" th:name="fecha2"  />
+          <br/>
+          <br/>
+          <label> Elija el local: </label> 
+	      <select placeholder="local" name="idLocal">
+		  <option th:each="l : ${locales}" th:value="${l.idLocal}" th:text=${l.direccion}></option>
+	      </select> 
+	      <br/>
+          <br/>          
+			<input type="submit" />
+
+		</form>   <br/>
+	<br/>
+	<br/>
+	<a th:href="@{/home}"> Volver al home</a>
