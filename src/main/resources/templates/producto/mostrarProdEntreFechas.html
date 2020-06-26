@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Productos vendidos entre fechas</title>
+</head>
+<body>
+    <br/>
+    <h3>Se muestra l resultado de la consulta productos vendidos</h3>
+	<h4><label>Para el local:  </label>
+			<td><span th:text="${local.idLocal}+' --->> nombre/direccion: '+${local.direccion}" /></td>
+    <br/>
+	<label>Entre las fechas  </label> 
+	<td><span th:text="${fecha1}" /></td> y <td><span th:text="${fecha2}" /></td> </h4>
+	<br/>
+	<br/>
+	<table>
+		<thead>
+			<tr>
+				<th>Producto</th>
+				<th>Decripcion</th>
+				<th>Precio unitario</th>		
+				<th>Cantidad</th>
+ 				<th>Total ($)</th> 
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr th:each="pedido : ${pedidos}">
+				<td><span th:text="${pedido.Producto.nombre}" /></td>
+				<td><span th:text="${pedido.Producto.descripcion}" /></td>
+			    <td><span th:text="${pedido.Producto.precio}" /></td>
+				<td><span th:text="${pedido.cantidad}" /></td>
+ 			    <td><span th:text="${pedido.total}" /></td>      	
+			</tr>
+		</tbody>
+	</table>
+    <br/>
+	<br/>
+	<h2><td><span th:text="${noHayVentas}" /></td></h2>
+    <br/>
+	<br/>
+	<a th:href="@{/productos}">Ir a productos</a>
+	<br/>
+	<br/>
+	<a th:href="@{/home}"> Ir al home</a>
+</body>
+
+</html>
+
