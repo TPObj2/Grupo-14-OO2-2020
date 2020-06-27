@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sueldo/empleados</title>
+</head>
+<body>
+    <br/>
+    <h3>Se muestra los sueldos actualizados</h3>
+	<h4><label>Para el local:  </label>
+			<td><span th:text="${local.idLocal}+' --->> nombre/direccion: '+${local.direccion}" /></td>
+    <br/>
+	<label>Entre las fechas  </label> 
+	<td><span th:text="${fecha1}" /></td> y <td><span th:text="${fecha2}" /></td> </h4>
+	<br/>
+	<br/>
+	<table>
+		<thead>
+			<tr>
+				<th>idEmpleado</th>
+				<th>Nombre</th>
+				<th>Apellido</th>		
+				<th>DNI</th>
+ 				<th>fecha de Nacimiento</th>
+ 				<th>esGerente</th>
+ 				<th>Horario de trabajo</th>
+ 				<th>Sueldo con comisiones</th>
+ 				
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr th:each="empleado : ${empleadosSuAc}">
+				<td><span th:text="${empleado.idPersona}" /></td>
+				<td><span th:text="${empleado.nombre}" /></td>
+			    <td><span th:text="${empleado.apellido}" /></td>
+			    <td><span th:text="${empleado.dni}" /></td>
+				<td><span th:text="${empleado.fechaDeNacimiento}" /></td>
+ 			    <td><span th:text="${empleado.esGerente}" /></td>     
+ 			    <td><span th:text="${empleado.franjaHoraria}" /></td>
+ 			    <td><span th:text="${empleado.sueldo}" /></td>
+
+			</tr>
+		</tbody>
+	</table>
+    <br/>
+	<br/>
+	<a th:href="@{/empleados}">Ir a empleados</a>
+	<br/>
+	<br/>
+	<a th:href="@{/home}"> Ir al home</a>
+</body>
+
+</html>
+
