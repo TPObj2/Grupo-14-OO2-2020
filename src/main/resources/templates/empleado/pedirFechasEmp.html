@@ -1,0 +1,23 @@
+<h3>Para conocer el sueldo actual de los empleados de un local (entre fechas)</h3>
+<h4>Ingrese las fechas y el local</h4>
+		<form action="devolverLocalYFechasEmpleado" method="Post">
+          <label>Ingrese la primera fecha</label>
+          <input type="date" th:name="fecha1"   />
+          <br/>
+          <br/>
+          <label>Ingrese la segunda fecha</label>
+          <input type="date" th:name="fecha2"  />
+          <br/>
+          <br/>
+          <label> Elija el local: </label> 
+	      <select placeholder="local" name="idLocal">
+		  <option th:each="l : ${locales}" th:value="${l.idLocal}" th:text=${l.direccion}></option>
+	      </select> 
+	      <br/>
+          <br/>          
+			<input type="submit" />
+
+		</form>   <br/>
+	<br/>
+	<br/>
+	<a th:href="@{/empleados}"> Volver al index de empleados</a>

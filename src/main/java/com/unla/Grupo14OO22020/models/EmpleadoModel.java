@@ -2,12 +2,17 @@ package com.unla.Grupo14OO22020.models;
 
 import java.util.Date;
 
+import org.springframework.lang.Nullable;
+
 public class EmpleadoModel extends PersonaModel{
 	
 	private String franjaHoraria;
 	private boolean esGerente; // true = Gerente, false = Vendedor.
-
-
+	@Nullable
+	private LocalModel local;  
+	@Nullable
+	private float sueldo;
+	
 	public EmpleadoModel() { }
 	
 	
@@ -39,5 +44,31 @@ public class EmpleadoModel extends PersonaModel{
 	}
 
 
+	public LocalModel getLocal() {
+		return local;
+	}
 
-}
+
+	public void setLocal(LocalModel local) {
+		this.local = local;
+	}
+	
+	
+
+
+	public float getSueldo() {
+		return sueldo;
+	}
+
+
+	public void setSueldo(float sueldo) {
+		this.sueldo = sueldo;
+	}
+
+
+	@Override
+	public String toString() {
+		return "EmpleadoModel [franjaHoraria=" + franjaHoraria + ", esGerente=" + esGerente + ", local=" + local + "]";
+	}
+	
+}//fin class
